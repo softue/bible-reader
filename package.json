@@ -17,6 +17,7 @@
     "whatsapp-web.js": "^1.14.1"
   },
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "jest": "^27.1.1"
   }
 }

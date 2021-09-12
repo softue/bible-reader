@@ -2,10 +2,9 @@ const { Client } = require('whatsapp-web.js')
 const qrcode = require('qrcode-terminal')
 const path = require("path");
 const Version = require('./versiculo.js')
-const SESSION_FILE_PATH = '../session.json';
+require('dotenv').config()
 
-let sessionData = require(path.resolve(__dirname, SESSION_FILE_PATH));
-
+const sessionData = JSON.parse(process.env.sessionData);
 const client = new Client({ session: sessionData });
 
 client.on('ready', () => {
@@ -17,7 +16,6 @@ client.on('message', message => {
   if (ver.getVersion()) {
     message.reply(ver.getVersion());
   }
-
 });
 
 client.initialize();
